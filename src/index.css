@@ -1,0 +1,26 @@
+/* src/index.css */
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   Portfolio theme — dark, developer-focused palette with a single
+   accent color for CTAs and highlights. Swap --color-accent for
+   whatever color you want as your signature.
+   --------------------------------------------------------------- */
+@theme {
+  --color-ink: #0a0e17;
+  --color-ink-light: #131a2b;
+  --color-surface: #1a2236;
+
+  --color-accent: #4ade80;      /* signature accent — swap freely */
+  --color-accent-dark: #22c55e;
+
+  --color-muted: #94a3b8;
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+body {
+  font-family: var(--font-display);
+  background: var(--color-ink);
+}
