@@ -3,65 +3,66 @@ import SectionHeading from "../ui/SectionHeading";
 /**
  * Skills.jsx
  * ---------------------------------------------------------------
- * Skills grouped into scannable categories.
+ * Technical toolbox — kept intentionally lean since Experience.jsx
+ * now carries the real narrative of what was built and where.
+ * This section exists for quick scanning, not storytelling.
  * ---------------------------------------------------------------
  */
 const SKILL_GROUPS = [
   {
     category: "Backend & APIs",
-    skills: ["Python", "FastAPI", "Django / DRF", "SQLAlchemy", "Pydantic", "REST API design", "JWT authentication"],
+    skills: ["Python", "FastAPI", "Django / DRF", "SQLAlchemy", "JWT authentication", "REST API design"],
   },
   {
     category: "Frontend",
-    skills: ["React", "Vite", "JavaScript / TypeScript", "Tailwind CSS", "Responsive UI development"],
+    skills: ["React", "Next.js", "Vite", "Tailwind CSS", "JavaScript / TypeScript"],
   },
   {
     category: "Databases",
-    skills: ["PostgreSQL", "MySQL", "Schema design", "Database migrations (Alembic)", "Dockerized PostgreSQL"],
+    skills: ["PostgreSQL", "MySQL", "Schema design", "Migrations (Alembic)"],
   },
   {
     category: "Linux & Systems",
-    skills: ["Linux administration (Fedora, Arch, Ubuntu)", "Bash scripting", "systemd", "SSH & server administration", "Docker"],
+    skills: ["Linux administration", "Bash scripting", "SSH & server administration", "Docker"],
   },
   {
     category: "Cybersecurity & Networking",
-    skills: ["Ethical hacking fundamentals", "Vulnerability assessment", "Nmap", "Burp Suite", "TCP/IP & network troubleshooting", "Firewall configuration"],
+    skills: ["Vulnerability assessment", "Nmap", "Burp Suite", "TCP/IP & network troubleshooting"],
   },
   {
     category: "IoT & Hardware",
-    skills: ["Arduino (Mega, Nano 33 IoT)", "ESP32 / ESP32-S3 / ESP32-C6", "Raspberry Pi", "Sensor interfacing (I2C, GPIO)", "PlatformIO"],
+    skills: ["Arduino", "ESP32 family", "Sensor interfacing (I2C, GPIO)", "PlatformIO"],
   },
   {
     category: "DevOps & Tooling",
-    skills: ["Git & GitHub", "Docker & Docker Compose", "Vercel deployment", "Environment configuration"],
-  },
-  {
-    category: "Teaching & Research",
-    skills: ["Curriculum development", "Cybersecurity & IoT instruction", "Student project supervision", "Technical documentation"],
+    skills: ["Git & GitHub", "Docker Compose", "Vercel deployment"],
   },
 ];
 
 export default function Skills() {
   return (
     <section id="skills" className="py-24 px-6 max-w-5xl mx-auto">
-      <SectionHeading number="02" title="Skills & Tools" />
+      <SectionHeading number="02" title="Technical Toolbox" />
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {SKILL_GROUPS.map((group) => (
           <div
             key={group.category}
-            className="bg-surface rounded-xl p-6 border border-white/5 hover:border-accent/40 transition-colors"
+            className="bg-surface rounded-xl p-5 border border-white/5 hover:border-accent/40 transition-colors"
           >
-            <h3 className="font-mono text-sm text-accent mb-4">
+            <h3 className="font-mono text-sm text-accent mb-3">
               {group.category}
             </h3>
-            <ul className="space-y-2">
+            <div className="flex flex-wrap gap-2">
               {group.skills.map((skill) => (
-                <li key={skill} className="text-sm text-muted leading-snug">
+                <span
+                  key={skill}
+                  className="text-xs text-muted bg-white/5 px-2.5 py-1 rounded"
+                >
                   {skill}
-                </li>
+                </span>
               ))}
-            </ul>
+            </div>
           </div>
         ))}
       </div>
