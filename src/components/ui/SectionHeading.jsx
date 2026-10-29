@@ -11,7 +11,7 @@ export default function SectionHeading({ number, title }) {
     <div className="flex items-center gap-4 mb-12">
       <h2 className="font-display text-2xl md:text-3xl font-bold text-white whitespace-nowrap">
         <span className="text-accent font-mono text-lg md:text-xl mr-2">
-          {number}.
+          
         </span>
         {title}
       </h2>

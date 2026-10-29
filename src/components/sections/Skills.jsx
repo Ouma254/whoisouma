@@ -1,69 +1,110 @@
+
 import SectionHeading from "../ui/SectionHeading";
 
-/**
- * Skills.jsx
- * ---------------------------------------------------------------
- * Technical toolbox — kept intentionally lean since Experience.jsx
- * now carries the real narrative of what was built and where.
- * This section exists for quick scanning, not storytelling.
- * ---------------------------------------------------------------
- */
 const SKILL_GROUPS = [
   {
-    category: "Backend & APIs",
-    skills: ["Python", "FastAPI", "Django / DRF", "SQLAlchemy", "JWT authentication", "REST API design"],
+    category: "Backend Development",
+    skills: [
+      "Python",
+      "FastAPI",
+      "Django REST Framework",
+      "SQLAlchemy",
+      "JWT Authentication",
+      "REST API Design",
+    ],
   },
   {
-    category: "Frontend",
-    skills: ["React", "Next.js", "Vite", "Tailwind CSS", "JavaScript / TypeScript"],
+    category: "Frontend Development",
+    skills: [
+      "React",
+      "Next.js",
+      "JavaScript",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+    ],
   },
   {
     category: "Databases",
-    skills: ["PostgreSQL", "MySQL", "Schema design", "Migrations (Alembic)"],
+    skills: [
+      "PostgreSQL",
+      "MySQL",
+      "Database Design",
+      "SQL",
+      "Alembic Migrations",
+    ],
   },
   {
     category: "Linux & Systems",
-    skills: ["Linux administration", "Bash scripting", "SSH & server administration", "Docker"],
+    skills: [
+      "Linux Administration",
+      "Bash Scripting",
+      "SSH",
+      "Server Administration",
+      "Docker",
+    ],
   },
   {
-    category: "Cybersecurity & Networking",
-    skills: ["Vulnerability assessment", "Nmap", "Burp Suite", "TCP/IP & network troubleshooting"],
+    category: "Security & Networking",
+    skills: [
+      "Vulnerability Assessment",
+      "Nmap",
+      "Burp Suite",
+      "TCP/IP",
+      "Network Troubleshooting",
+    ],
   },
   {
-    category: "IoT & Hardware",
-    skills: ["Arduino", "ESP32 family", "Sensor interfacing (I2C, GPIO)", "PlatformIO"],
+    category: "IoT & Embedded Systems",
+    skills: [
+      "Arduino",
+      "ESP32",
+      "Sensor Interfacing",
+      "I2C",
+      "GPIO",
+      "PlatformIO",
+    ],
   },
   {
-    category: "DevOps & Tooling",
-    skills: ["Git & GitHub", "Docker Compose", "Vercel deployment"],
+    category: "Development Tools",
+    skills: [
+      "Git",
+      "GitHub",
+      "Docker Compose",
+      "Vercel",
+    ],
   },
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 px-6 max-w-5xl mx-auto">
-      <SectionHeading number="02" title="Technical Toolbox" />
+    <section
+      id="skills"
+      className="mx-auto max-w-6xl px-6 py-20 sm:py-24"
+    >
+      <SectionHeading title="Technical Skills" />
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="mt-10 grid gap-0 sm:grid-cols-2 lg:grid-cols-3">
         {SKILL_GROUPS.map((group) => (
-          <div
+          <article
             key={group.category}
-            className="bg-surface rounded-xl p-5 border border-white/5 hover:border-accent/40 transition-colors"
+            className="border-t border-white/10 px-5 py-6 first:pt-6 sm:odd:border-r sm:odd:pr-7 sm:even:pl-7 lg:border-r lg:px-6 lg:py-7 lg:nth-[3n]:border-r-0"
           >
-            <h3 className="font-mono text-sm text-accent mb-3">
+            <h3 className="mb-4 text-sm font-semibold tracking-wide text-white">
               {group.category}
             </h3>
-            <div className="flex flex-wrap gap-2">
+
+            <ul className="flex flex-wrap gap-x-2 gap-y-2">
               {group.skills.map((skill) => (
-                <span
+                <li
                   key={skill}
-                  className="text-xs text-muted bg-white/5 px-2.5 py-1 rounded"
+                  className="text-sm leading-6 text-muted"
                 >
                   {skill}
-                </span>
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+          </article>
         ))}
       </div>
     </section>

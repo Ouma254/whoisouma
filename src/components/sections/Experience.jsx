@@ -1,24 +1,16 @@
+
 import SectionHeading from "../ui/SectionHeading";
 
-/**
- * Experience.jsx
- * ---------------------------------------------------------------
- * Professional experience, treated as real roles with real
- * responsibilities — not a skills list dressed up as a timeline.
- * Update `period` fields with actual date ranges once confirmed.
- * ---------------------------------------------------------------
- */
 const EXPERIENCE = [
   {
     role: "Founder & Owner",
     org: "SKIhub Labs",
     period: "Ongoing",
     points: [
-      "Founded and lead a technology and digital-skills initiative from the ground up",
-      "Develop and coordinate software, cybersecurity, programming, and IoT training activities",
-      "Design practical technology projects and structured learning programs",
-      "Provide technical mentorship and supervise student projects",
-      "Lead product and technology decisions across SKIhub initiatives",
+      "Lead a technology and digital-skills initiative focused on software development, cybersecurity, and IoT.",
+      "Develop practical training programs, technical projects, and structured learning materials.",
+      "Coordinate training activities and mentor learners through hands-on projects.",
+      "Guide technical and product decisions across SKIhub initiatives.",
     ],
   },
   {
@@ -26,31 +18,30 @@ const EXPERIENCE = [
     org: "SKIhub Labs",
     period: "Ongoing",
     points: [
-      "Conduct cybersecurity research around software, systems, and emerging technologies",
-      "Develop and evaluate cybersecurity research projects",
-      "Investigate security problems and translate findings into practical technical solutions",
-      "Mentor and guide cybersecurity-related student projects",
+      "Research security issues involving software, operating systems, and emerging technologies.",
+      "Investigate technical security problems and evaluate practical solutions.",
+      "Support cybersecurity learning and research-oriented student projects.",
     ],
   },
   {
     role: "Software Developer",
     org: "Seed Magazine",
-    period: "Freelance engagement",
+    period: "Freelance",
     points: [
-      "Developed software systems for magazine subscription and management workflows",
-      "Worked across frontend, backend, and database components",
-      "Designed relational database structures for subscribers, subscriptions, payments, invoices, and deliveries",
-      "Developed and integrated APIs and application functionality",
+      "Develop software for magazine subscription and management workflows.",
+      "Work across application interfaces, backend functionality, and database systems.",
+      "Design relational database structures for subscribers, subscriptions, invoices, payments, and deliveries.",
+      "Implement application features and integrate APIs.",
     ],
   },
   {
     role: "Software Developer",
     org: "Modcom Institute of Technology",
-    period: "Engagement",
+    period: "2026 – Present",
     points: [
-      "Developed software applications and technical solutions",
-      "Worked with web technologies, databases, and backend systems",
-      "Participated in practical software-development projects and technical problem solving",
+      "Develop software applications and backend functionality.",
+      "Work with databases, API integration, and web technologies.",
+      "Contribute to implementation, testing, and technical problem-solving.",
     ],
   },
   {
@@ -58,38 +49,52 @@ const EXPERIENCE = [
     org: "Felcode Academy",
     period: "Ongoing",
     points: [
-      "Conduct cybersecurity research and technical investigations",
-      "Support cybersecurity training and practical research activities",
-      "Guide learners through cybersecurity projects and research problems",
+      "Conduct cybersecurity research and technical investigations.",
+      "Support practical cybersecurity training and research activities.",
+      "Guide learners working on cybersecurity projects.",
     ],
   },
 ];
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 px-6 max-w-5xl mx-auto">
-      <SectionHeading number="04" title="Professional Experience" />
+    <section
+      id="experience"
+      className="mx-auto max-w-6xl px-6 py-20 sm:py-24"
+    >
+      <SectionHeading title="Professional Experience" />
 
-      <div className="space-y-12">
+      <div className="mt-10">
         {EXPERIENCE.map((job) => (
-          <div key={`${job.role}-${job.org}`} className="grid md:grid-cols-4 gap-4">
-            <p className="font-mono text-sm text-muted">{job.period}</p>
+          <article
+            key={`${job.role}-${job.org}`}
+            className="grid gap-3 border-t border-white/10 py-7 md:grid-cols-[190px_1fr] md:gap-10 md:py-8"
+          >
+            <p className="text-sm text-muted">
+              {job.period}
+            </p>
 
-            <div className="md:col-span-3">
-              <h3 className="font-display text-lg font-bold text-white">
-                {job.role}{" "}
-                <span className="text-accent font-normal">@ {job.org}</span>
+            <div>
+              <h3 className="font-display text-lg font-semibold leading-snug text-white">
+                {job.role}
               </h3>
-              <ul className="mt-3 space-y-2">
+
+              <p className="mt-1 text-sm text-accent">
+                {job.org}
+              </p>
+
+              <ul className="mt-5 space-y-3">
                 {job.points.map((point) => (
-                  <li key={point} className="flex items-start gap-2 text-sm text-muted">
-                    <span className="text-accent mt-1 shrink-0">▹</span>
+                  <li
+                    key={point}
+                    className="text-sm leading-7 text-muted"
+                  >
                     {point}
                   </li>
                 ))}
               </ul>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>

@@ -1,18 +1,13 @@
+
 import { ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import SectionHeading from "../ui/SectionHeading";
 
-/**
- * Projects.jsx
- * ---------------------------------------------------------------
- * Featured project cards.
- * ---------------------------------------------------------------
- */
 const PROJECTS = [
   {
     name: "SKIhub",
     description:
-      "A digital learning platform built with FastAPI, PostgreSQL, and Next.js — designed as a full LMS with structured course delivery and user management.",
+      "A digital learning platform built around structured course delivery and user management, using FastAPI, PostgreSQL, and Next.js.",
     tech: ["FastAPI", "PostgreSQL", "Next.js"],
     repo: null,
     live: null,
@@ -20,24 +15,24 @@ const PROJECTS = [
   {
     name: "Fashionest",
     description:
-      "A Flask-based fashion e-commerce API with integrated M-PESA payment support, covering product catalog, cart, and order flows end to end.",
-    tech: ["Flask", "M-PESA API", "PostgreSQL"],
+      "A fashion e-commerce API covering product catalog management, shopping carts, orders, and M-PESA payment integration.",
+    tech: ["Flask", "PostgreSQL", "M-PESA API"],
     repo: null,
     live: null,
   },
   {
     name: "Seed Magazine Subscription System",
     description:
-      "A full-stack subscription platform built for the Consolata Missionaries' Seed Magazine — managing subscriber records, renewals, and distribution.",
-    tech: ["Full-stack", "PostgreSQL"],
+      "A subscription management platform for Seed Magazine, supporting subscriber records, renewals, and distribution workflows.",
+    tech: ["Full-stack Development", "PostgreSQL"],
     repo: null,
     live: null,
   },
   {
     name: "Kodich VTC",
     description:
-      "A full-stack site built for freelance client Kodich VTC, covering their public-facing presence and core content management needs.",
-    tech: ["React", "Full-stack"],
+      "A website developed for a vocational training centre, providing a public-facing platform for its information and content.",
+    tech: ["React", "Full-stack Development"],
     repo: null,
     live: null,
   },
@@ -45,38 +40,43 @@ const PROJECTS = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 px-6 max-w-5xl mx-auto">
-      <SectionHeading number="03" title="Featured Projects" />
+    <section
+      id="projects"
+      className="mx-auto max-w-6xl px-6 py-20 sm:py-24"
+    >
+      <SectionHeading title="Selected Projects" />
 
-      <div className="grid sm:grid-cols-2 gap-6">
-        {PROJECTS.map((project) => (
-          <div
+      <div className="mt-10 grid gap-x-10 md:grid-cols-2">
+        {PROJECTS.map((project, index) => (
+          <article
             key={project.name}
-            className="bg-surface rounded-xl p-6 border border-white/5 hover:border-accent/40 hover:-translate-y-1 transition-all duration-300 flex flex-col"
+            className="flex flex-col border-t border-white/10 py-7 sm:py-8"
           >
-            <div className="flex items-start justify-between mb-4">
-              <h3 className="font-display text-lg font-bold text-white">
+            <div className="mb-4 flex items-start justify-between gap-4">
+              <h3 className="font-display text-lg font-semibold leading-snug text-white">
                 {project.name}
               </h3>
-              <div className="flex items-center gap-3 shrink-0">
+
+              <div className="flex shrink-0 items-center gap-4">
                 {project.repo && (
                   <a
                     href={project.repo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${project.name} repository`}
-                    className="text-muted hover:text-accent transition-colors"
+                    aria-label={`View ${project.name} source code on GitHub`}
+                    className="text-muted hover:text-white"
                   >
-                    <FaGithub size={18} />
+                    <FaGithub size={19} />
                   </a>
                 )}
+
                 {project.live && (
                   <a
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${project.name} live site`}
-                    className="text-muted hover:text-accent transition-colors"
+                    aria-label={`Visit ${project.name} website`}
+                    className="text-muted hover:text-white"
                   >
                     <ExternalLink size={18} />
                   </a>
@@ -84,21 +84,21 @@ export default function Projects() {
               </div>
             </div>
 
-            <p className="text-sm text-muted leading-relaxed flex-1">
+            <p className="mb-5 text-sm leading-7 text-muted">
               {project.description}
             </p>
 
-            <div className="flex flex-wrap gap-2 mt-5">
-              {project.tech.map((tech) => (
-                <span
-                  key={tech}
-                  className="font-mono text-xs text-accent bg-accent/10 px-2.5 py-1 rounded"
+            <ul className="mt-auto flex flex-wrap gap-x-4 gap-y-2">
+              {project.tech.map((technology) => (
+                <li
+                  key={technology}
+                  className="text-xs text-muted"
                 >
-                  {tech}
-                </span>
+                  {technology}
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+          </article>
         ))}
       </div>
     </section>
